@@ -1,0 +1,92 @@
+configuration :
+  - name : aaa
+    ip   : 127.0.0.1
+    port : 12325
+    maingroup : GroupA
+
+  - name : bbb
+    ip   : 127.0.0.2
+    port : 12332
+    maingroup : GroupB
+
+  - name : ccc
+    ip   : 127.0.0.3
+    port : 12997
+    maingroup : GroupC
+
+  - name : ddd
+    ip   : 127.0.0.4
+    port : 13566
+    maingroup : GroupD
+  
+  - name : eee
+    ip   : 127.0.0.5
+    port : 13667
+    maingroup : GroupE
+
+  - name : fff
+    ip   : 127.0.0.6
+    port : 13767
+    maingroup : GroupF
+
+  - name : ggg
+    ip   : 127.0.0.7
+    port : 13967
+    maingroup : GroupG
+
+
+sendRules :
+  - action : duplicate
+    src    : alice
+    dest   : bob
+    kind   : aacka
+  - action : delay
+    kind   : lookup
+
+receiveRules:
+  - action : delay
+    src    : alice
+    dest   : chalie
+    kind   : ann
+  - action : delay
+    src    : alice
+    kind   : aacka
+
+clockType:
+  - type   : vector
+
+groups:
+  - name : GroupA
+    members:
+      - aaa
+  - name : GroupB
+    members:
+      - bbb
+      - ddd
+      - fff
+  - name : GroupC
+    members:
+      - ccc
+      - eee
+      - fff
+  - name : GroupD
+    members:
+      - aaa
+      - ddd
+      - eee
+  - name : GroupE
+    members:
+      - bbb
+      - eee
+      - ggg
+  - name : GroupF
+    members:
+      - aaa
+      - fff
+      - ggg
+  - name : GroupG
+    members:
+      - ccc
+      - ddd
+      - ggg
+

@@ -1,0 +1,53 @@
+configuration :
+  - name : alice
+    ip   : 127.0.0.1
+    port : 12324
+
+  - name : bob
+    ip   : 127.0.0.2
+    port : 12332
+
+  - name : charlie
+    ip   : 127.0.0.3
+    port : 12997
+
+  - name : daphnie
+    ip   : 127.0.0.4
+    port : 13566
+  
+  - name : zhiyu
+    ip   : 127.0.0.1
+    port : 13567
+
+sendRules :
+  - action : duplicate
+    src    : alice
+    dest   : bob
+    kind   : aacka
+  - action : delay
+    kind   : lookup
+
+receiveRules:
+  - action : delay
+    src    : alice
+    dest   : chalie
+    kind   : ann
+  - action : delay
+    src    : alice
+    kind   : aacka
+
+clockType:
+  - type   : vector
+
+groups:
+  - name : Group1
+    members:
+      - alice
+      - bob
+      - charlie
+  - name : Group2
+    members:
+      - alice
+      - daphnie
+      - bob
+      - charlie

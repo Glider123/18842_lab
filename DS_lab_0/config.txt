@@ -1,0 +1,30 @@
+configuration :
+  - name : alice
+    ip   : 192.168.1.52
+    port : 12344
+
+  - name : bob
+    ip   : 192.168.1.112
+    port : 14255
+
+  - name : charlie
+    ip   : 128.2.130.19
+    port : 12998
+
+  - name : daphnie
+    ip   : 192.168.1.87
+    port : 1987
+
+sendRules :
+  - action : drop
+    src    : bob
+    dest   : alice
+    kind   : Ack
+    seqNum : 4
+  - action : delay
+    kind   : Lookup
+
+receiveRules:
+  - action : duplicate
+    src    : charlie
+    seqNum : 3
